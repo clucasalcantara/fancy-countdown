@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import emotionReset from 'emotion-reset';
 import {Global, css} from '@emotion/core';
 // App Container
-import { Countdown } from './app/container';
+import { AppContainer } from './app/container';
 // Utils
 import reportWebVitals from './reportWebVitals';
 
@@ -34,7 +34,7 @@ ReactDOM.render(
         monospace;
       }
     `} />
-    <Countdown />
+    <AppContainer />
   </React.StrictMode>,
   document.getElementById('root')
 );
