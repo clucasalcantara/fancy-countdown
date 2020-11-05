@@ -1,10 +1,15 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 import ReactDOM from 'react-dom';
 // CSS RESET
 import emotionReset from 'emotion-reset';
 import {Global, css} from '@emotion/core';
 // App Context
-import { AppSettingsProvider } from './app/context'
+import { AppSettingsProvider } from './app/contexts'
 // App Container
 import { AppContainer } from './app/container';
 // Utils
@@ -36,9 +41,15 @@ ReactDOM.render(
         monospace;
       }
     `} />
-    <AppSettingsProvider>
-      <AppContainer />
-    </AppSettingsProvider>
+    <Router>
+      <Switch>
+        <Route path="/">
+          <AppSettingsProvider>
+            <AppContainer />
+          </AppSettingsProvider>
+        </Route>
+      </Switch>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
