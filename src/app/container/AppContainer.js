@@ -65,7 +65,7 @@ export const AppContainer = ({ imageQuery }) => {
   
   return (
     <Container>
-      <SettingsModal isOpen={settingsIsOpen} />
+      <SettingsModal isOpen={settingsIsOpen} handleClose={() => setSettingsIsOpen(false)} />
       <Overlay />
       {bgImage && <Background backgroundImage={bgImage} />}
       <CountdownWrapper>

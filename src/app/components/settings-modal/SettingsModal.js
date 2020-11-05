@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
+// Assets
+import { Close } from '../../../assets'
 
 const Wrapper = styled.div(({ isOpen }) => ({
     zIndex: 10,
@@ -13,8 +15,18 @@ const Wrapper = styled.div(({ isOpen }) => ({
     fontWeight: 'bold'
 }))
 
-export const SettingsModal = ({ isOpen }) => (
+const CloseButton = styled.div({
+    position: 'absolute',
+    top: 20,
+    right: 15,
+    color: 'black'
+})
+
+export const SettingsModal = ({ isOpen, handleClose }) => (
     <Wrapper isOpen={isOpen}>
+        <CloseButton onClick={() => handleClose()}>
+            <Close width="14px" height="14px" />
+        </CloseButton>
         <div style={{ flexDirection: 'column', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <div style={{ flexDirection: 'column', display: 'flex', alignItems: 'center' }}>
                 <label style={{ paddingBottom: 10 }}>Target date</label>
@@ -27,4 +39,5 @@ export const SettingsModal = ({ isOpen }) => (
 
 SettingsModal.defaultProps = {
     isOpen: false,
+    handleClose: () => {},
 }
