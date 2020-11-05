@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from '@emotion/styled'
+// Context
+import { useAppSettings } from '../context' 
 // UI Elements
 import { CountdownTimer } from '../components'
 // Unsplash Service
@@ -37,6 +39,7 @@ const CountdownWrapper = styled.div({
 
 export const AppContainer = ({ imageQuery }) => {
   const [bgImage, setBgImage] = useState(null)
+  const { targetDate } = useAppSettings()
   
   useEffect(() => {
     getRandomImage(setBgImage, imageQuery)
@@ -48,7 +51,7 @@ export const AppContainer = ({ imageQuery }) => {
       <Overlay />
       {bgImage && <Background backgroundImage={bgImage} />}
       <CountdownWrapper>
-        <CountdownTimer targetDate="11/13/2020" />
+        <CountdownTimer targetDate={targetDate} />
       </CountdownWrapper>
     </Container>
   )

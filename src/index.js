@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 // CSS RESET
 import emotionReset from 'emotion-reset';
 import {Global, css} from '@emotion/core';
+// App Context
+import { AppSettingsProvider } from './app/context'
 // App Container
 import { AppContainer } from './app/container';
 // Utils
@@ -34,7 +36,9 @@ ReactDOM.render(
         monospace;
       }
     `} />
-    <AppContainer />
+    <AppSettingsProvider>
+      <AppContainer />
+    </AppSettingsProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
