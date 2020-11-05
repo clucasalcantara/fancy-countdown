@@ -5,7 +5,6 @@ const unsplash = new Unsplash({
 })
 
 const getRandomImage = async (cb, query = 'white shark') => {
-  console.log({ cb, query })
   try {
     const { urls } = await unsplash.photos
       .getRandomPhoto({ query })
